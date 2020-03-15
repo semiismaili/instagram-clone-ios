@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48F79428241E9C79007BF310 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F79427241E9C79007BF310 /* UserTableViewController.swift */; };
 		48FEBEF5241D262D00BDEE1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FEBEF4241D262D00BDEE1C /* AppDelegate.swift */; };
 		48FEBEF7241D262D00BDEE1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FEBEF6241D262D00BDEE1C /* ViewController.swift */; };
 		48FEBEFA241D262D00BDEE1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48FEBEF8241D262D00BDEE1C /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48F79427241E9C79007BF310 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 		48FEBEF1241D262D00BDEE1C /* instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48FEBEF4241D262D00BDEE1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48FEBEF6241D262D00BDEE1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				48FEBEF4241D262D00BDEE1C /* AppDelegate.swift */,
 				48FEBEF6241D262D00BDEE1C /* ViewController.swift */,
 				48FEBEF8241D262D00BDEE1C /* Main.storyboard */,
+				48F79427241E9C79007BF310 /* UserTableViewController.swift */,
 				48FEBEFB241D262D00BDEE1C /* Assets.xcassets */,
 				48FEBEFD241D262D00BDEE1C /* LaunchScreen.storyboard */,
 				48FEBF00241D262D00BDEE1C /* Info.plist */,
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48FEBEF7241D262D00BDEE1C /* ViewController.swift in Sources */,
+				48F79428241E9C79007BF310 /* UserTableViewController.swift in Sources */,
 				48FEBEF5241D262D00BDEE1C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
