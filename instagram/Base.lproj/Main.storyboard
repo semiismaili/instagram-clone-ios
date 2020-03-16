@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -108,11 +109,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Users" id="Pe7-pT-MF6">
-                        <barButtonItem key="leftBarButtonItem" title="Post" id="DAN-rM-5lX">
-                            <connections>
-                                <segue destination="PhR-WR-yxr" kind="show" id="GHa-xc-I5b"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Post" id="DAN-rM-5lX">
+                                <connections>
+                                    <segue destination="PhR-WR-yxr" kind="show" id="GHa-xc-I5b"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Feed" id="kGR-HW-pMC">
+                                <connections>
+                                    <segue destination="Hqi-yp-AJe" kind="show" id="aXw-H4-N5r"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="aqg-xU-9YP">
                             <connections>
                                 <action selector="logoutUser:" destination="82P-VP-e7s" id="7Jm-16-E4u"/>
@@ -174,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmC-Vv-uUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2436" y="147.97601199400302"/>
+            <point key="canvasLocation" x="2487" y="-84"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MDM-wd-Pm8">
@@ -191,6 +199,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5g-so-k9X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="871" y="145"/>
+        </scene>
+        <!--Your Feed-->
+        <scene sceneID="AVA-Mi-meV">
+            <objects>
+                <tableViewController title="Your Feed" id="Hqi-yp-AJe" customClass="FeedTableViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XyV-n4-THd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="350" id="hCK-HF-pi9" customClass="FeedTableViewCell" customModule="instagram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="350"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hCK-HF-pi9" id="Y6K-Ga-mht">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="349.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fT-7p-rjh">
+                                            <rect key="frame" x="24" y="18" width="327" height="216"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.95355003240000002" green="0.95355003240000002" blue="0.95355003240000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNz-Ue-6TO">
+                                            <rect key="frame" x="8" y="271" width="359" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJY-U4-Eb6">
+                                            <rect key="frame" x="8" y="242" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="comment" destination="YJY-U4-Eb6" id="fw5-SE-5LA"/>
+                                    <outlet property="postedImage" destination="5fT-7p-rjh" id="RLM-aq-RCK"/>
+                                    <outlet property="userInfo" destination="LNz-Ue-6TO" id="aFj-tq-p6X"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Hqi-yp-AJe" id="xRj-Cc-bf0"/>
+                            <outlet property="delegate" destination="Hqi-yp-AJe" id="bYL-1x-gO0"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ux-xz-rYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2485.5999999999999" y="620.23988005997012"/>
         </scene>
     </scenes>
 </document>
