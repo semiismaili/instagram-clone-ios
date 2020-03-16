@@ -17,6 +17,7 @@ class UserTableViewController: UITableViewController {
     var isFollowing = ["": false] //dictionary where key = objectId
     //value = whether the current user follows the user with that objectId or not
     
+    var refresher: UIRefreshControl = UIRefreshControl()
     
     @IBAction func logoutUser(_ sender: Any) {
         
@@ -26,8 +27,7 @@ class UserTableViewController: UITableViewController {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @objc func updateTable(){
         
         
         let query = PFUser.query()
@@ -78,8 +78,14 @@ class UserTableViewController: UITableViewController {
                                             
                                         }
                                         
-                                        self.tableView.reloadData()
-                                        
+                                        if self.usernames.count == self.isFollowing.count { //if we are finished with all the users
+                                            
+                                            self.tableView.reloadData()     //only then update the table
+                                            
+                                            self.refresher.endRefreshing()  //and only then end refreshing (updating the table from pulling down)
+
+                                            
+                                        }
                                     }
                                     
                                 })
@@ -96,6 +102,19 @@ class UserTableViewController: UITableViewController {
                 
             }
         })
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        updateTable()
+        
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh!") //What appears at the top
+        
+        refresher.addTarget(self, action: #selector(UserTableViewController.updateTable), for: UIControlEvents.valueChanged) //handling pull to refresh
+        
+        tableView.addSubview(refresher)
         
     }
     
@@ -121,8 +140,8 @@ class UserTableViewController: UITableViewController {
         
         
         // Configure the cell...
-       
-         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier", for: indexPath)
         
         cell.textLabel?.text = usernames[indexPath.row]  //corresponds to prototype cell with identifier cellReuseIdentifier
         
@@ -160,7 +179,7 @@ class UserTableViewController: UITableViewController {
                     
                     if let objects = objects { //see if objects array exists
                         
-
+                        
                         for object in objects { //delete the entries from Following table in Parse
                             
                             object.deleteInBackground()
@@ -178,7 +197,7 @@ class UserTableViewController: UITableViewController {
             } else {
                 
                 isFollowing[objectIds[indexPath.row]] = true //follow locally
-
+                
                 cell?.accessoryType = UITableViewCellAccessoryType.checkmark //add checkmark
                 
                 let following = PFObject(className: "Following")
