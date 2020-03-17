@@ -1,11 +1,10 @@
-
 ## School Assignment
 
-**dummy accounts:**
-*semi0@semi.com* pass: test
-*semi1@semi.com*  pass: test
-*semi2@semi.com* pass: test
-*semi3@semi.com* pass: test
+**dummy accounts:** `</br>`
+*semi0@semi.com* pass: test `</br>`
+*semi1@semi.com*  pass: test `</br>`
+*semi2@semi.com* pass: test  `</br>`
+*semi3@semi.com* pass: test `</br>`
 
 
 
